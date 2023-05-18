@@ -99,6 +99,33 @@ vector<pair<int, int>> reduceToVertexCover(vector<int>& I) {
     return fI;
 }
 
+/*
+    função que recebe a instância f(I) do problema Vertex-Cover, encontra a solução e retorna a resposta S para o problema Vertex-Cover
+*/
+
+vector<int> findVertexCover(vector<pair<int, int>>& fI) {
+    unordered_set<int> vertexCover; // Conjunto para armazenar o conjunto de vértices do Vertex-Cover
+    
+    // Verifica cada aresta em fI
+    for (const auto& edge : fI) {
+        int u = edge.first;
+        int v = edge.second;
+        
+        // Adiciona u e v ao conjunto Vertex-Cover
+        vertexCover.insert(u);
+        vertexCover.insert(v);
+    }
+    
+    vector<int> result(vertexCover.begin(), vertexCover.end()); // Converte o conjunto para um vetor
+    
+    cout << "Vertex-Cover: ";
+    for (const auto& vertex : vertexCover) {
+        cout << vertex << " ";
+    }
+    cout << endl;
+
+    return result;
+}
 
 
 int main() {
@@ -113,7 +140,10 @@ int main() {
     
     vector<pair<int, int>> fI = reduceToVertexCover(independentSet); // Instância f(I) do problema Vertex-Cover
     
-
+    vector<int> vertexCover = findVertexCover(fI); // Conjunto de vértices do Vertex-Cover
     
+    
+
+
     return 0;
 }
