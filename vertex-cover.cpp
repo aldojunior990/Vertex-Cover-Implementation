@@ -114,9 +114,6 @@ vector<pair<int, int>> reduceToVertexCover(vector<int> &I)
 }
 
 /*
-    função que recebe a instância f(I) do problema Vertex-Cover, encontra a solução e retorna a resposta S para o problema Vertex-Cover
-*/
-
 vector<int> findVertexCover(vector<pair<int, int>> &fI)
 {
     unordered_set<int> vertexCover; // Conjunto para armazenar o conjunto de vértices do Vertex-Cover
@@ -143,11 +140,17 @@ vector<int> findVertexCover(vector<pair<int, int>> &fI)
 
     return result;
 }
+*/
 
-vector<int> findVertexCover2(vector<pair<int, int>> &fI)
+/*
+    função que recebe a instância f(I) do problema Vertex-Cover, encontra a solução e retorna a resposta S para o problema Vertex-Cover
+*/
+vector<int> findVertexCover(vector<pair<int, int>> &fI)
 {
-    vector<int> vertexCover = {}; // Conjunto para armazenar o conjunto de vértices do Vertex-Cover
+    // Conjunto para armazenar o conjunto de vértices do Vertex-Cover
+    vector<int> vertexCover = {};
 
+    // inicializa um vetor de arestas
     vector<pair<int, int>> arestas = fI;
     // Verifica cada aresta em fI
     for (const auto &e : arestas)
@@ -155,13 +158,14 @@ vector<int> findVertexCover2(vector<pair<int, int>> &fI)
         int u = e.first;
         int v = e.second;
 
-        // Adiciona u e v ao conjunto Vertex-Cover
+        // Se u e v forem diferentes de 0 são adicionados a resposta
         if (u != 0 && v != 0)
         {
             vertexCover.push_back(u);
             vertexCover.push_back(v);
         }
 
+        // Remove todas as arestas adjacentes a u e v do vetor de arestas
         for (auto &i : arestas)
         {
             int x = i.first;
@@ -174,10 +178,8 @@ vector<int> findVertexCover2(vector<pair<int, int>> &fI)
         }
     }
 
-    cout << "]" << endl;
-
     cout
-        << "Vertex-Cover: ";
+        << "Solução Vertex-Cover: ";
     for (const auto &vertex : vertexCover)
     {
         cout << vertex << " ";
@@ -222,22 +224,27 @@ vector<int> convertAnswer(vector<pair<int, int>> &I, vector<int> &S)
 
 int main()
 {
-    vector<pair<int, int>> I = {{1, 2}, {2, 3}, {3, 4}}; // Instância do problema Vertex-Cover
-    vector<pair<int, int>> I2 = {
-        {1, 2},
-        {1, 3},
-        {2, 3},
-        {2, 4},
-        {2, 5},
-        {2, 6}};                                          // Instância do problema Vertex-Cover
-    vector<pair<int, int>> I3 = {{1, 2}, {1, 4}, {2, 3}}; // Instância do problema Vertex-Cover
-    vector<int> S = {1, 3};                               // Solução proposta para I (Válido)
+    // Instância 1 do problema Vertex-Cover
+    vector<pair<int, int>> I = {{1, 2}, {2, 3}, {3, 4}};
+    // Instância 2 do problema Vertex-Cover
+    vector<pair<int, int>> I2 = {{1, 2}, {1, 3}, {2, 3}, {2, 4}, {2, 5}, {2, 6}};
+    // Instância 3 do problema Vertex-Cover
+    vector<pair<int, int>> I3 = {{1, 2}, {1, 4}, {2, 3}};
+    vector<int> S = {1, 3}; // Solução proposta para I (Válido)
     vector<int> S2 = {1, 4};
-    vector<int> S3 = {2, 3}; // Solução proposta para I (Inválido)
+    vector<int> S3 = {2, 3}; // Solução proposta para I2 (Inválido)
     vector<int> S4 = {2, 4};
 
-    findVertexCover2(I3);
+    // Achando uma solução ótima para a instancia 2
+    findVertexCover(I);
 
+    // Achando uma solução ótima para a instancia 2
+    findVertexCover(I2);
+
+    // Achando uma solução ótima para a instancia 3
+    findVertexCover(I3);
+
+    // Verificando se as soluções são válidas
     isVertexCover(I, S);
     isVertexCover(I, S2);
     isVertexCover(I2, S3);
@@ -247,11 +254,12 @@ int main()
 
     vector<pair<int, int>> fI = reduceToVertexCover(independentSet); // Instância f(I) do problema Vertex-Cover
 
-    vector<int> vertexCover = findVertexCover(fI); // Conjunto de vértices do Vertex-Cover
+    // vector<int> vertexCover = findVertexCover(fI); // Conjunto de vértices do Vertex-Cover
 
+    // Conversão de S(vertex-cover) -> S(independent-set):
     vector<int> independentSetResponse = convertAnswer(I2, S3);
 
-    std::cout << "Resposta do independent-set: ";
+    std::cout << "Conversão de S(vertex-cover) -> S(independent-set): ";
     for (const auto &element : independentSetResponse)
     {
         std::cout << element << " ";
