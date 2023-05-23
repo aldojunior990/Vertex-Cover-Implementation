@@ -148,7 +148,6 @@ vector<int> findVertexCover2(vector<pair<int, int>> &fI)
 {
     vector<int> vertexCover = {}; // Conjunto para armazenar o conjunto de vértices do Vertex-Cover
 
-    // inicializa um vetor de arestas
     vector<pair<int, int>> arestas = fI;
     // Verifica cada aresta em fI
     for (const auto &e : arestas)
@@ -156,14 +155,13 @@ vector<int> findVertexCover2(vector<pair<int, int>> &fI)
         int u = e.first;
         int v = e.second;
 
-        // Se u e v forem diferentes de 0 são adicionados a resposta
+        // Adiciona u e v ao conjunto Vertex-Cover
         if (u != 0 && v != 0)
         {
             vertexCover.push_back(u);
             vertexCover.push_back(v);
         }
 
-        // Remove todas as arestas adjacente a u e v do vetor de arestas
         for (auto &i : arestas)
         {
             int x = i.first;
@@ -175,6 +173,16 @@ vector<int> findVertexCover2(vector<pair<int, int>> &fI)
             }
         }
     }
+
+    cout << "]" << endl;
+
+    cout
+        << "Vertex-Cover: ";
+    for (const auto &vertex : vertexCover)
+    {
+        cout << vertex << " ";
+    }
+    cout << endl;
 
     return vertexCover;
 }
@@ -216,19 +224,19 @@ int main()
 {
     vector<pair<int, int>> I = {{1, 2}, {2, 3}, {3, 4}}; // Instância do problema Vertex-Cover
     vector<pair<int, int>> I2 = {
+        {1, 2},
         {1, 3},
-        {2, 1},
         {2, 3},
         {2, 4},
         {2, 5},
-        {2, 6}};                                                  // Instância do problema Vertex-Cover
-    vector<pair<int, int>> I3 = {{1, 2}, {2, 3}, {4, 1}, {3, 4}}; // Instância do problema Vertex-Cover
-    vector<int> S = {1, 3};                                       // Solução proposta para I (Válido)
+        {2, 6}};                                          // Instância do problema Vertex-Cover
+    vector<pair<int, int>> I3 = {{1, 2}, {1, 4}, {2, 3}}; // Instância do problema Vertex-Cover
+    vector<int> S = {1, 3};                               // Solução proposta para I (Válido)
     vector<int> S2 = {1, 4};
     vector<int> S3 = {2, 3}; // Solução proposta para I (Inválido)
     vector<int> S4 = {2, 4};
 
-    findVertexCover2(I2);
+    findVertexCover2(I3);
 
     isVertexCover(I, S);
     isVertexCover(I, S2);
