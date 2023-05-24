@@ -150,15 +150,31 @@ int main()
     imprimeGrafo(gr);
     imprimirMatriz(gr);
     */
-    
+    /*
     GRAFO *gr2 = iniciar(5);
     criarAresta(gr2, 1, 2);
     criarAresta(gr2, 2, 3);
     criarAresta(gr2, 3, 4);
     imprimeGrafo(gr2);
     imprimirMatriz(gr2);
-    
-    
+    */
+    GRAFO *gr3 = iniciar(9);
+    criarAresta(gr3, 1, 2);
+    criarAresta(gr3, 1, 3);
+    criarAresta(gr3, 1, 4);
+    criarAresta(gr3, 1, 5);
+    criarAresta(gr3, 2, 4);
+    criarAresta(gr3, 3, 4);
+    criarAresta(gr3, 3, 6);
+    criarAresta(gr3, 3, 7);
+    criarAresta(gr3, 4, 7);
+    criarAresta(gr3, 5, 6);
+    criarAresta(gr3, 5, 8);
+    criarAresta(gr3, 6, 7);
+    criarAresta(gr3, 6, 8);
+    criarAresta(gr3, 7, 8);
+    imprimeGrafo(gr3);
+    imprimirMatriz(gr3);
 
-    int* S = soluçãoOtimaVertexCover(gr2, 6);
+    int* S = soluçãoOtimaVertexCover(gr3, 8);
 }
