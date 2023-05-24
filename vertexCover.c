@@ -49,7 +49,7 @@ int ehVertexCover(GRAFO *g, int S[])
     // Encontra a solução Vertex-Cover do Grafo
     int *vertex = soluçãoOtimaVertexCover(g, g->nVertices);
 
-    // Percorre todo o
+    // Percorre todo a solução ideal verificando se a solução passada está correta
     for (int i = 0; i < g->nVertices; i++)
     {
         if (vertex[i] != S[i])
