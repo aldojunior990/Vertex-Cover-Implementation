@@ -59,3 +59,10 @@ void imprimeGrafo(GRAFO *g)
         printf("\n");
     }
 }
+
+
+int main() {
+
+    
+    return 0;
+}
