@@ -11,7 +11,7 @@
       "cwd": "/home/aldo/paa/Vertex-Cover-Implementation",
       "program": "/home/aldo/paa/Vertex-Cover-Implementation/build/Debug/outDebug",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

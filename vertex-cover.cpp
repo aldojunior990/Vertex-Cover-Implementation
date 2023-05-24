@@ -33,15 +33,14 @@ bool isVertexCover(vector<pair<int, int>> &I, vector<int> &S)
 */
 
 /*
- * função f responsável pela redução da instância I do problema 
+ * função f responsável pela redução da instância I do problema
  * Independent set para instância f(I) do problema vertex-cover:
-*/
-
+ */
 
 /*
- * função que recebe a instância f(I) do problema Vertex-Cover, 
+ * função que recebe a instância f(I) do problema Vertex-Cover,
  * encontra a solução e retorna a resposta S para o problema Vertex-Cover
-*/
+ */
 
 // Função que recebe B ( Vertex-Cover ) e retorna a sua solução
 vector<int> findVertexCover(vector<pair<int, int>> &fI)
@@ -121,15 +120,17 @@ vector<int> convertAnswer(vector<pair<int, int>> &I, vector<int> &S)
     return response;
 }
 
-vector<int> SolucionaA(vector<pair<int, int>> &I) {
+vector<int> SolucionaA(vector<pair<int, int>> &I)
+{
     vector<int> resultado = {NULL};
     vector<int> solucao_B = findVertexCover(I);
-    
-    if (solucao_B.size() != 0) {
+
+    if (solucao_B.size() != 0)
+    {
         vector<int> solucao_A = convertAnswer(I, solucao_B);
         resultado = solucao_A;
     }
-    
+
     return resultado;
 }
 
@@ -140,11 +141,11 @@ int main()
 
     // Instância 2 do problema Vertex-Cover
     vector<pair<int, int>> I2 = {{1, 2}, {1, 3}, {2, 3}, {2, 4}, {2, 5}, {2, 6}};
-    
+
     // Instância 3 do problema Vertex-Cover
     vector<pair<int, int>> I3 = {{1, 2}, {1, 4}, {2, 3}, {2, 4}};
-    
-    vector<int> S = {1, 3}; // Solução proposta para I (Válido)
+
+    vector<int> S = {1, 3};  // Solução proposta para I (Válido)
     vector<int> S2 = {1, 4}; // Solução proposta para I (Inválido)
     vector<int> S3 = {2, 3}; // Solução proposta para I2 (Válido)
     vector<int> S4 = {2, 4}; // Solução proposta para I3 (Válido)
@@ -167,14 +168,17 @@ int main()
     // Conversão de S(vertex-cover) -> S(independent-set):
     vector<int> independentSetResponse = SolucionaA(I2);
 
-    if (independentSetResponse.size() != 0 ) {
+    if (independentSetResponse.size() != 0)
+    {
         cout << "Conversão de S(vertex-cover) -> S(independent-set): ";
         for (const auto &element : independentSetResponse)
         {
             cout << element << " ";
         }
         cout << endl;
-    } else {
+    }
+    else
+    {
         cout << "Não existe solução para o grafo dado" << endl;
     }
 
