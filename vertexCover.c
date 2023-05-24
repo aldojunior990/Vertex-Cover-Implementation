@@ -43,3 +43,21 @@ int *soluçãoOtimaVertexCover(GRAFO *g, int limit)
 
     return S;
 }
+
+int ehVertexCover(GRAFO *g, int S[])
+{
+    // Encontra a solução Vertex-Cover do Grafo
+    int *vertex = soluçãoOtimaVertexCover(g, g->nVertices);
+
+    // Percorre todo o
+    for (int i = 0; i < g->nVertices; i++)
+    {
+        if (vertex[i] != S[i])
+        {
+            printf("NÃO EH UMA SOLUÇAO VALIDA\n");
+            return 0;
+        }
+    }
+    printf("EH UMA SOLUÇAO VALIDA\n");
+    return 1;
+}

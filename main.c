@@ -56,4 +56,17 @@ int main()
     imprimeGrafo(gr4);
     imprimirMatriz(gr4);
     soluçãoOtimaVertexCover(gr4, 5);
+
+    GRAFO *gr5 = iniciar(5);
+    criarAresta(gr5, 1, 2);
+    criarAresta(gr5, 1, 4);
+    criarAresta(gr5, 2, 4);
+    criarAresta(gr5, 2, 3);
+    imprimeGrafo(gr5);
+    imprimirMatriz(gr5);
+    int *solução5 = (int *)malloc(2 * sizeof(int));
+    solução5[0] = 2;
+    solução5[1] = 1;
+
+    ehVertexCover(gr5, solução5);
 }

@@ -5,5 +5,6 @@
 #include "grafo.h"
 
 int *soluçãoOtimaVertexCover(GRAFO *g, int limit);
+int ehVertexCover(GRAFO *g, int S[]);
 
 #endif // VERTEX_COVER_H
