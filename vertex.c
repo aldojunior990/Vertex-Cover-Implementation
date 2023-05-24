@@ -102,44 +102,48 @@ void imprimirMatriz(GRAFO *g)
 int *soluçãoOtimaVertexCover(GRAFO *g, int limit)
 {
     GRAFO *aux = g;
-    int *S = (int*) malloc(limit * sizeof(int));
+    int *S = (int *)malloc(limit * sizeof(int));
     int maiorG = 0;
     int grauAtual;
     int K = 0;
-    
+
     // Zera todas posições de S
     for (int i = 0; i < limit; i++)
         S[i] = 0;
 
-    while (aux->nArestas > 0) {
+    while (aux->nArestas > 0)
+    {
         // encontra o vértice de maior grau
-        for (int i = 0, max = 0; i < aux->nVertices; i++) {
+        for (int i = 0, max = 0; i < aux->nVertices; i++)
+        {
             grauAtual = grauV(g, i);
-            if (grauAtual > max){
+            if (grauAtual > max)
+            {
                 maiorG = i;
                 max = grauAtual;
             }
         }
-        //adiciona o vértice de maior grau em S
+        // adiciona o vértice de maior grau em S
         S[K++] = maiorG;
-        //remove o maior vértice do grafo
-        for (int i = 0; i < aux->nVertices; i++) {
-            if (aux->adj[maiorG][i] == 1) 
+        // remove o maior vértice do grafo
+        for (int i = 0; i < aux->nVertices; i++)
+        {
+            if (aux->adj[maiorG][i] == 1)
                 removeAresta(aux, maiorG, i);
         }
     }
 
     printf("\nS de B' = ");
-    for (int i = 0; i < limit; i++) 
+    for (int i = 0; i < limit; i++)
         printf(" %d ", S[i]);
-    printf("\n");
+    printf("\n\n");
 
     return S;
 }
 
 int main()
 {
-    /*
+
     GRAFO *gr = iniciar(7);
     criarAresta(gr, 1, 2);
     criarAresta(gr, 1, 3);
@@ -149,15 +153,20 @@ int main()
     criarAresta(gr, 2, 6);
     imprimeGrafo(gr);
     imprimirMatriz(gr);
-    */
-    /*
-    GRAFO *gr2 = iniciar(5);
-    criarAresta(gr2, 1, 2);
-    criarAresta(gr2, 2, 3);
-    criarAresta(gr2, 3, 4);
+    soluçãoOtimaVertexCover(gr, 7);
+
+    GRAFO *gr2 = iniciar(8);
+    criarAresta(gr2, 1, 5);
+    criarAresta(gr2, 2, 5);
+    criarAresta(gr2, 2, 6);
+    criarAresta(gr2, 3, 5);
+    criarAresta(gr2, 4, 5);
+    criarAresta(gr2, 4, 6);
+    criarAresta(gr2, 6, 7);
     imprimeGrafo(gr2);
     imprimirMatriz(gr2);
-    */
+    soluçãoOtimaVertexCover(gr2, 8);
+
     GRAFO *gr3 = iniciar(9);
     criarAresta(gr3, 1, 2);
     criarAresta(gr3, 1, 3);
@@ -176,5 +185,14 @@ int main()
     imprimeGrafo(gr3);
     imprimirMatriz(gr3);
 
-    int* S = soluçãoOtimaVertexCover(gr3, 8);
+    soluçãoOtimaVertexCover(gr3, 8);
+
+    GRAFO *gr4 = iniciar(5);
+    criarAresta(gr4, 1, 2);
+    criarAresta(gr4, 1, 4);
+    criarAresta(gr4, 2, 4);
+    criarAresta(gr4, 2, 3);
+    imprimeGrafo(gr4);
+    imprimirMatriz(gr4);
+    soluçãoOtimaVertexCover(gr4, 5);
 }
