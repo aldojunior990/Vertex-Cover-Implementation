@@ -59,7 +59,6 @@ int existe(int vet[], int value, int tam)
 
 int ehVertexCover(GRAFO *g, int S[])
 {
-
     // Percorre toda o grafo verificando se solução passada está correta
     for (int i = 0; i < g->nVertices; i++)
     {
