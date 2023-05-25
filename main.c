@@ -4,7 +4,7 @@
 
 int main()
 {
-
+    
     GRAFO *gr = iniciar(7);
     criarAresta(gr, 1, 2);
     criarAresta(gr, 1, 3);
@@ -14,8 +14,8 @@ int main()
     criarAresta(gr, 2, 6);
     imprimeGrafo(gr);
     imprimirMatriz(gr);
-    soluçãoOtimaVertexCover(gr, 7);
-
+    solucionaA(gr);
+    /*
     GRAFO *gr2 = iniciar(8);
     criarAresta(gr2, 1, 5);
     criarAresta(gr2, 2, 5);
@@ -63,10 +63,5 @@ int main()
     criarAresta(gr5, 2, 3);
     criarAresta(gr5, 2, 4);
     imprimeGrafo(gr5);
-    imprimirMatriz(gr5);
-    int *solução5 = (int *)malloc(gr5->nVertices * sizeof(int));
-    solução5[0] = 2;
-    solução5[1] = 1;
-
-    ehVertexCover(gr5, solução5);
+    imprimirMatriz(gr5);*/
 }

@@ -15,4 +15,5 @@ int grauV(GRAFO *g, int vertice);
 void imprimeGrafo(GRAFO *g);
 void imprimirMatriz(GRAFO *g);
 
+
 #endif

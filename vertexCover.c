@@ -37,7 +37,7 @@ int *soluçãoOtimaVertexCover(GRAFO *g, int limit)
     }
 
     printf("\nS de B' = ");
-    for (int i = 0; i < limit; i++)
+    for (int i = 0; i < K; i++)
         printf(" %d ", S[i]);
     printf("\n\n");
 
@@ -76,4 +76,43 @@ int ehVertexCover(GRAFO *g, int S[])
     }
     printf("Está é uma solução válida para a instância I do problema Vertex-Cover.\n");
     return 1;
+}
+
+
+int *converteVertexParaIndempendt(GRAFO *g, int *S, int K){
+    int tamSA = (g->nVertices-1)-K;
+    int *SA = (int*) malloc((tamSA)*sizeof(int));
+    int aceito = TRUE;
+
+    // verifica
+    for (int i = 1; i < g->nVertices; i++){
+        aceito = TRUE;
+        for (int j = 0; j < K; j++) {
+            if (i == S[j])  
+                aceito = FALSE;
+        }
+        if (aceito)
+            SA[--tamSA] = i;
+    }
+
+    return SA;
+}
+
+void solucionaA(GRAFO *g) {
+    int cont=0;
+    int *SA;
+    int *SBdeA = soluçãoOtimaVertexCover(g, g->nVertices);
+
+    while (SBdeA[cont] != 0) cont++;
+    
+
+    if (SBdeA[0] != 0) {
+        SA = converteVertexParaIndempendt(g, SBdeA, cont);
+        printf("\nS de A' = ");
+        for (int i = 0; i < g->nVertices-cont-1; i++)
+        printf(" %d ", SA[i]);
+        printf("\n\n");
+    } else {
+        printf("Nao existe solucao.\n");
+    }
 }

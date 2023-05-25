@@ -8,10 +8,10 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/aldo/paa/Vertex-Cover-Implementation",
-      "program": "/home/aldo/paa/Vertex-Cover-Implementation/build/Debug/outDebug",
+      "cwd": "/home/will/Documentos/minhas coisas/Ciência da Computação/6 - Sexto Semestre/Projeto e Analise de Algoritmo/Vertex-Cover-Implementation",
+      "program": "/home/will/Documentos/minhas coisas/Ciência da Computação/6 - Sexto Semestre/Projeto e Analise de Algoritmo/Vertex-Cover-Implementation/main",
       "MIMode": "gdb",
-      "miDebuggerPath": "/usr/bin/gdb",
+      "miDebuggerPath": "gdb",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
