@@ -60,7 +60,7 @@ int existe(int vet[], int value, int tam)
 int ehVertexCover(GRAFO *g, int S[])
 {
 
-    // Percorre todo a solução ideal verificando se a solução passada está correta
+    // Percorre toda o grafo verificando se solução passada está correta
     for (int i = 0; i < g->nVertices; i++)
     {
         for (int j = 0; j < g->nVertices; j++)
