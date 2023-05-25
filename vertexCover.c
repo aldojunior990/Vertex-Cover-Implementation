@@ -68,12 +68,12 @@ int ehVertexCover(GRAFO *g, int S[])
             {
                 if (existe(S, i, g->nVertices) == 0 && existe(S, j, g->nVertices) == 0)
                 {
-                    printf("NÃO EH UMA SOLUÇAO VALIDA\n");
+                    printf("Está não é uma solução válida para a instância I do problema Vertex-Cover.\n");
                     return 0;
                 }
             }
         }
     }
-    printf("EH UMA SOLUÇAO VALIDA\n");
+    printf("Está é uma solução válida para a instância I do problema Vertex-Cover.\n");
     return 1;
 }

@@ -60,8 +60,8 @@ int main()
     GRAFO *gr5 = iniciar(5);
     criarAresta(gr5, 1, 2);
     criarAresta(gr5, 1, 4);
-    criarAresta(gr5, 2, 4);
     criarAresta(gr5, 2, 3);
+    criarAresta(gr5, 2, 4);
     imprimeGrafo(gr5);
     imprimirMatriz(gr5);
     int *solução5 = (int *)malloc(gr5->nVertices * sizeof(int));
