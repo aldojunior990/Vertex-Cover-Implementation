@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": false,
       "cwd": "/home/will/Documentos/minhas coisas/Ciência da Computação/6 - Sexto Semestre/Projeto e Analise de Algoritmo/Vertex-Cover-Implementation",
-      "program": "/home/will/Documentos/minhas coisas/Ciência da Computação/6 - Sexto Semestre/Projeto e Analise de Algoritmo/Vertex-Cover-Implementation/main",
+      "program": "/home/will/Documentos/minhas coisas/Ciência da Computação/6 - Sexto Semestre/Projeto e Analise de Algoritmo/Vertex-Cover-Implementation/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
